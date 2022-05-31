@@ -1,0 +1,12 @@
+{
+    "python.pythonPath": "/Users/administrator/.local/share/virtualenvs/mod_3-K6EynCUm",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/__pycache__": true
+    }
+}

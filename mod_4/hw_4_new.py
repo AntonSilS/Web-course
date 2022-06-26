@@ -3,7 +3,7 @@ from threading import Thread
 import os, re, shutil, sys
 
 
-class MyThread(Thread):
+class ReturnValueThread(Thread):
     def __init__(self, group=None, target=None, name=None, 
                  args=(), kwargs={}, verbose=None):
         super().__init__(group, target, name, args, kwargs)
@@ -165,9 +165,9 @@ class Catalog:
             if os.path.isdir(filename_path):
                 if os.listdir(filename_path):
                     obj_path = UserPath(filename_path)
-                    my_thread = MyThread(target=self.get_tree, args=(obj_path,))
-                    my_thread.start()
-                    tree += my_thread.join()
+                    cus_thread = ReturnValueThread(target=self.get_tree, args=(obj_path,))
+                    cus_thread.start()
+                    tree += cus_thread.join()
                 else: 
                     folder_path = UserPath(filename_path)
                     folder = Folder(folder_path)
@@ -193,8 +193,8 @@ class Catalog:
                 break
 
     def sorts_files(self):
-        list_known_exten = []
-        list_unknown_exten = []
+        list_known_exten = set()
+        list_unknown_exten = set()
         tree = self.get_tree(self.path)
         for obj in tree:
             if isinstance(obj, File):
@@ -209,9 +209,9 @@ class Catalog:
                     obj.__init__(obj.path)
                 if obj.extention.category == 'other':
                     if obj.extention.name:
-                        list_unknown_exten.append(obj.extention.name)
+                        list_unknown_exten.add(obj.extention.name)
                 else:
-                    list_known_exten.append(obj.extention.name)
+                    list_known_exten.add(obj.extention.name)
                 if obj.extention.category == 'archive':
                     obj.unpzip_archive()
                     obj.name_translateration()

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+    <title>Presonal-helper</title>
+    </head>
+    <body>
+        <main class="container">
+            <h1 style="margin-bottom: 0px" align=center class="title">All contacts</h1>
+            <hr style="color:white; height: 4px; width: 500px; padding: 10px;">
+            <table style = "font-size: 20px">
+                
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contact in contacts%}
+                        <tr>
+                            <td>{{contact.id}}</td>
+                            <td>{{contact.name}}</td>
+                            <td>{{contact.birthday[0]}}</td>
+                            <td>{{contact.address[0]}}</td>
+                            <td>{{contact.email[0]}}</td>
+                            <td>
+                                 <br>{{contact.phone_1 if contact.phone_1}}
+                                 <br>{{contact.phone_2 if contact.phone_2}}
+                                 <br>{{contact.phone_3 if contact.phone_3}}
+                            </td>
+                            <td>
+                                <nav >
+                                    <ul>
+                                        <li><form style="margin-bottom: 10px; padding-left: 10px" method="GET" action="/edit-contact/{{contact.id}}"><button type="submit" name='id' value={{contact.id}}>Edit</button></form></li>
+                                        <li><form style="margin-bottom: 10px; padding-left: 10px" method="GET" action="/edit-contact/{{contact.id}}"><button type="submit" name='id' value='Delete'>Del</button></form></li>
+                                    </ul>
+                                </nav>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+               
+            </table>
+            <a style="width:100%; margin-bottom: 20px" href="/add-contact/" role="button"> Add one more contact </a>
+            <a style="width:100%" href="/" role="button"> <-- Main page </a>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+    <title>Presonal-helper</title>
+    </head>
+    <body>
+        <main class="container">
+            <h1 style="margin-bottom: 0px" align=center class="title">Personal Helper</h1>
+            <hr style="color:white; height: 4px; padding: 10px;">
+            <form action="/add-contact/">
+                <button type="submit">Add new contact</button>
+            </form>
+            <form action="/result/">
+                <button type="submit">Edit contact</button>
+            </form>
+            <form action="/result/">
+                <button style="margin-bottom: 20px" type="submit">Show all</button>
+            </form>
+            <hr style="color:white; height: 4px; padding: 10px;">
+            <form action="/birthday/">
+                <button style="margin-bottom: 20px" type="submit">Coming birthday</button>
+            </form>
+            <hr style="color:white; height: 4px; padding: 10px;">
+            <form method="POST" action="/result/">
+            <input type="search" name="key" placeholder="type something" required> 
+            <button type="submit">Search</button>
+            </form>
+        </main>
+    </body>
+</html>

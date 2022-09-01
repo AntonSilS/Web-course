@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+    <title>Presonal-helper</title>
+    </head>
+    <body>
+        <main class="container">
+            
+            <h1 style="margin-bottom: 0px" align=center class="title">Edit contact:&nbsp&nbsp{{cont.name}}</h1>
+            <hr style="color:white; height: 4px; width: 500px; padding: 10px;">
+            <form method="POST">
+                <div class="grid">
+                    <label style= "font-size: 20px;text-align: center; font-style: italic" for="name">
+                        Name:&nbsp&nbsp<span style="color: #ff8080">{{cont.name}}</span>
+                        <input type="text" name="name" id="name" placeholder="Type new name" autofocus>
+                    </label>
+              
+                    <label style= "font-size: 20px;text-align: center; font-style: italic" for="email">
+                        Email:&nbsp&nbsp<span style="color: #ff8080">{{cont.email[0] if cont.email else "______"}}</span>
+                        <input type="text" name="email" id="email" placeholder="Type new email" pattern="[a-zA-Z][\w.]+@[a-zA-z]+\.[a-zA-Z]{2,}" title="Example format: john_bean@gmail.com">
+                    </label>
+
+                    <label style= "font-size: 20px;text-align: center; font-style: italic" for="birthday">
+                        Birthday:&nbsp&nbsp <span style="color: #ff8080">{{cont.birthday[0] if cont.birthday else "______"}}</span>
+                        <input type="date" name="birthday" id="birthday" placeholder="Type new birthday date" min="1920-01-01" title="Example format: DD.MM.YYYY">
+                    </label>
+                </div>
+
+                <div class="grid">
+                    <label style= "font-size: 20px;text-align: center; font-style: italic" for="phone_1">
+                        Phone #1:&nbsp&nbsp<span style="color: #ff8080">{{cont.phone_1 if cont.phone_1 else "______"}}</span>
+                        <input type="text" name="phone_1" id="phone_1" placeholder="Type new phone #1" pattern="\(0\d{2}\)\d{3}-\d{2}-\d{2}" title="Example format: (XXX)XXX-XX-XX">
+                    </label>
+
+                    <label style= "font-size: 20px;text-align: center; font-style: italic" for="phone_2">
+                        Phone #2:&nbsp&nbsp<span style="color: #ff8080">{{cont.phone_2 if cont.phone_2 else "______"}}</span>
+                        <input type="text" name="phone_2" id="phone_2" placeholder="Type new phone #2" pattern="\(0\d{2}\)\d{3}-\d{2}-\d{2}" title="Example format: (XXX)XXX-XX-XX">
+                    </label>
+
+                    <label style= "font-size: 20px;text-align: center; font-style: italic" for="phone_3">
+                        Phone #3:&nbsp&nbsp<span style="color: #ff8080">{{cont.phone_2  if cont.phone_2  else "______"}}</span>
+                        <input type="text" name="phone_3" id="phone_3" placeholder="Type new phone #3" pattern="\(0\d{2}\)\d{3}-\d{2}-\d{2}" title="Example format: (XXX)XXX-XX-XX">
+                    </label>
+                </div>
+                <label style= "font-size: 20px;text-align: center; font-style: italic" for="birthday">
+                    Address:&nbsp&nbsp<span style="color: #ff8080">{{cont.address[0] if cont.address else "______"}}</span>
+                    <input type="text" name="address" id="address" placeholder="Type new address">
+                </label> 
+                <button type="submit">Save change</button>
+                <a style="width:100%" href="/result/" role="button"> <-- All contacts </a>
+            </form>
+        </main>
+    </body>
+</html>

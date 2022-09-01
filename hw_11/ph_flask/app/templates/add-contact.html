@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+    <title>Presonal-helper</title>
+    </head>
+    <body>
+        <main class="container">
+            <h1 style="margin-bottom: 0px" align=center class="title">Personal Helper</h1>
+            <hr style="color:white; height: 4px; padding: 10px;">
+            <h3 style="margin-bottom: 20px" align=center class="title">Add contact</h1>
+            <hr style="color:white; height: 4px; width: 500px; padding: 10px;">
+            <form method="POST">
+                <div class="grid">
+                  <label for="username">
+                    <symbol style="color: red">*</symbol> Username
+                    <input type="text" name="username" id="username" placeholder="John Bean" autofocus required >
+                  </label>
+                  <label for="email">
+                    Email
+                    <input type="email" name="email" id="email" placeholder="john_bean@gmail.com" pattern="[a-zA-Z][\w.]+@[a-zA-z]+\.[a-zA-Z]{2,}">
+                  </label>
+                  <label for="birthday">
+                    Birthday
+                    <input type="date" name="birthday" id="birthday" min="1920-01-01">
+                  </label>
+                </div>
+                <div class="grid">
+                    <label for="phone_1">
+                        Phone #1
+                        <input type="tel" name="phone_1" id="phone_1" placeholder="(XXX)XXX-XX-XX" pattern="\(0\d{2}\)\d{3}-\d{2}-\d{2}" >
+                    </label>
+                    <label for="phone_2">
+                        Phone #2
+                        <input type="tel" name="phone_2" id="phone_2" placeholder="(XXX)XXX-XX-XX" pattern="\(0\d{2}\)\d{3}-\d{2}-\d{2}" >
+                    </label>
+                    <label for="phone_3">
+                        Phone #3
+                        <input type="tel" name="phone_3" id="phone_3" placeholder="(XXX)XXX-XX-XX" pattern="\(0\d{2}\)\d{3}-\d{2}-\d{2}" >
+                    </label> 
+                </div>
+                <label for="address">
+                    Address
+                    <input type="text" name="address" id="address" placeholder="Type address">
+                </label> 
+                <h8><symbol style="color: red">*</symbol> required field</h8>
+                <button type="submit">Submit</button>
+                <a style="width:100%" href="/" role="button"> <-- Main page </a>
+              </form>
+        </main>
+    </body>
+</html>

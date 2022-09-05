@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ua" data-theme="dark">
+    <head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+    <title>Financial assistant</title>
+    </head>
+    <body>
+        <main class="container">
+            <h1 style="margin-bottom: 0px" align=center class="title">Фінансовий помічник</h1>
+            <hr style="color:white; height: 4px; padding: 10px;">
+
+            <form method="POST" action="{% url 'index' %}">
+                {% csrf_token %}
+                <div class="grid">
+                    <label style= "font-size: 20px; text-align: center" for="type"> Тип
+                        <select name="type" id="type" required>
+                                <option value="income">Дохід</option>
+                                <option value="spending">Витрати</option>
+                        </select>
+                    </label>
+
+                    <label style= "font-size: 20px; text-align: center" for="amount">
+                        Дохід/витрати
+                    <input type="number" name="amount" id="amount" placeholder="Введіть сумму" autofocus min="0" required>
+                    </label>
+                    <label style= "font-size: 20px; text-align: center" for="category"> Категорії
+                        <select name="category" id="category" required>
+                            <option disabled selected value> -- Виберіть категорію -- </option>
+                            {% for c in category_list %}
+                                <option value={{c.id}}>{{c.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+
+                    <label style= "font-size: 20px; text-align: center" for="date">Дата (необов’язково)
+                        <input type="date" id="date" name="date">
+                    </label>
+                </div>
+                <!-- {% csrf_token %} -->
+                <button type="submit">Зберігти і відправити</button>
+            </form>
+            <hr style="color:white; height: 4px; padding: 10px;">
+            <form action="report/">
+                <!-- {% csrf_token %} -->
+                <button type="submit">Зробити звіт</button>
+            </form>
+            <hr style="color:white; height: 4px; padding: 10px;">
+            <form action="edit-categories/">
+                <!-- {% csrf_token %} -->
+                <button type="submit">Редагування категорій</button>
+            </form>
+            <form action="/countfin/">
+                <!-- {% csrf_token %} -->
+                <button type="submit">Скинути</button>
+            </form>
+        </main>
+    </body>
+</html>
